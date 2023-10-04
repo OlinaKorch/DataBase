@@ -1,0 +1,163 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Форма по добавлению объекта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Форма по добавлению объекта</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="cipher_section">Шифр секции</label>
+            {{ form.cipher_section }}<br>
+            <label for="cipher_fond">Шифр коллекция/фонд</label>
+            {{ form.cipher_fond }}<br>
+            <label for="cipher_fond_number">Номер коллекции/фонда</label>
+            {{ form.cipher_fond_number }}<br>
+            <label for="cipher_case_number">Номер дела</label>
+            {{ form.cipher_case_number }}<br>
+            <label for="cipher_list_number">Номер листа</label>
+            {{ form.cipher_list_number }}<br>
+            <label for="sample_number">№ образца(для образцов без шифра)</label>
+            {{ form.sample_number }}<br>
+            <label for="year">Год</label>
+            {{ form.year }}<br>
+            <label for="month">Месяц</label>
+            {{ form.month }}<br>
+            <label for="day">День</label>
+            {{ form.day }}<br>
+            <label for="author">Автор</label>
+            {{ form.author }}<br>
+            <label for="short_description">Краткое описание</label>
+            {{ form.short_description }}<br>
+            <label for="place">Место создания</label>
+            {{ form.place }}<br>
+            <label for="detailed_description">Подробное описание</label>
+            {{ form.detailed_description }}<br>
+            <label for="restoration">Предыдущая реставрация</label>
+            {{ form.restoration }}<br>
+            <label for="shade">Оттенок</label>
+            {{ form.shade }}<br>
+            <label for="ebb">Отлив</label>
+            {{ form.ebb }}<br>
+            <label for="text_orientation">Ориентация текста относительно верже</label>
+            {{ form.text_orientation }}<br>
+            <label for="cutting">Обрезка</label>
+            {{ form.cutting }}<br>
+            <label for="folding">Сложение</label>
+            {{ form.folding }}<br>
+            <label for="size_width">Ширина (мм)</label>
+            {{ form.size_width }}<br>
+            <label for="size_height">Высота (мм)</label>
+            {{ form.size_height }}<br>
+            <label for="square">Площадь будет посчитана после добавления объекта</label>
+            {{ form.square }}<br>
+            <label for="avg_sheet_thickness">Средняя толщина листа (мм)</label>
+            {{ form.avg_sheet_thickness }}<br>
+            <label for="med_sheet_thickness">Толщина листа медиана (мм)</label>
+            {{ form.med_sheet_thickness }}<br>
+            <label for="sheet_weight">Вес листа (гр)</label>
+            {{ form.sheet_weight }}<br>
+            <label for="square">Масса будет посчитана после добавления объекта</label>
+            {{ form.mass }}<br>
+            <label for="square">Плотность будет посчитана после добавления объекта</label>
+            {{ form.density }}<br>
+            <label for="filigree_pic">Филигрань рисунок</label>
+            {{ form.filigree_pic }}<br>
+            <label for="filigree_height">Высота филиграни (мм)</label>
+            {{ form.filigree_height }}<br>
+            <label for="filigree_description">Описание филиграни</label>
+            {{ form.filigree_description }}<br>
+            <label for="filigree_conformity">Филигрань соответствие</label>
+            {{ form.filigree_conformity }}<br>
+            <label for="filigree_bernstein">Филигрань Бернштейн</label>
+            {{ form.filigree_bernstein }}<br>
+            <label for="filigree_safety">Сохранность филиграни</label>
+            {{ form.filigree_safety }}<br>
+            <label for="countermark_pic">Контрмарка рисунок</label>
+            {{ form.countermark_pic }}<br>
+            <label for="countermark_height">Высота контрмарки (мм)</label>
+            {{ form.countermark_height }}<br>
+            <label for="countermark_description">Описание контрмарки</label>
+            {{ form.countermark_description }}<br>
+            <label for="countermark_conformity">Контрмарка соответствие</label>
+            {{ form.countermark_conformity }}<br>
+            <label for="countermark_bernstein">Контрмарка Бернштейн</label>
+            {{ form.countermark_bernstein }}<br>
+            <label for="countermark_safety">Сохранность филиграни</label>
+            {{ form.countermark_safety }}<br>
+            <label for="verge_distance">Расстояние между верже (мм)</label>
+            {{ form.verge_distance }}<br>
+            <label for="pontuso_distance">Расстояние между понтюзо (мм)</label>
+            {{ form.pontuso_distance }}<br>
+            <label for="verge_thickness">Толщина верже (мм)</label>
+            {{ form.verge_thickness }}<br>
+             <label for="pontuso_thickness">Толщина понтюзо (мм)</label>
+            {{ form.pontuso_thickness }}<br>
+            <label for="date_of_forms">Дата отливочной формы</label>
+            {{ form.date_of_form }}<br>
+            <label for="whiteness_avg">Средняя белизна (cie)</label>
+            {{ form.whiteness_avg }}<br>
+            <label for="brightness_avg">Средняя яркость (%)</label>
+            {{ form.brightness_avg }}<br>
+            <label for="fluorescence">Флуоресценция (%)</label>
+            {{ form.fluorescence }}<br>
+            <label for="whiteness_exp">Белизна (параметры измерений)</label>
+            {{ form.whiteness_exp }}<br>
+            <label for="pH_avg">pH-среднее</label>
+            {{ form.pH_avg }}<br>
+            <label for="pH_exp">pH (параметры измерений)</label>
+            {{ form.pH_exp }}<br>
+            <label for="fiber_composition_herc">Состав по волокну (Херцберг)</label>
+            {{ form.fiber_composition_herc }}<br>
+            <label for="fiber_composition_graff">Состав по волокну (Графф)</label>
+            {{ form.fiber_composition_graff }}<br>
+            <label for="fiber_composition_description2">Состав по волокну</label>
+            {{ form.fiber_composition_description2 }}<br>
+            <label for="polmic_pol">Поляризационная микроскопия в поляризованном свете</label>
+            {{ form.polmic_pol }}<br>
+            <label for="polmic_cross">Поляризационная микроскопия в скрещенных николях</label>
+            {{ form.polmic_cross }}<br>
+            <label for="polmic_param">Поляризационная микроскопия, параметры измерений</label>
+            {{ form.polmic_param }}<br>
+            <label for="rfa_spectrum">Рисунок спектра РФА</label>
+            {{ form.rfa_spectrum }}<br>
+            <label for="rfa_composition">РФА количественые значения</label>
+            {{ form.rfa_composition }}<br>
+            <label for="rfa_spectrum_format">РФА спектр формата</label>
+            {{ form.rfa_spectrum_format }}<br>
+            <label for="rfa_exp_data">РФА (параметры измерений)</label>
+            {{ form.rfa_exp_data }}<br>
+            <label for="IRFourier_pic">ИК-Фурье рисунок</label>
+            {{ form.IRFourier_pic }}<br>
+            <label for="IRFourier_spectrum_format">ИК-Фурье спектр формата</label>
+            {{ form.IRFourier_spectrum_format }}<br>
+            <label for="IRFourier_description">ИК-Фурье описание</label>
+            {{ form.IRFourier_description }}<br>
+            <label for="IRFourier_exp_data">ИК-Фурье (параметры измерений)</label>
+            {{ form.IRFourier_exp_data }}<br>
+            <label for="esm_second_pic">СЭМ вторичные электроны</label>
+            {{ form.esm_second_pic }}<br>
+            <label for="esm_reverse_pic">СЭМ обратно рассеянные</label>
+            {{ form.esm_reverse_pic }}<br>
+            <label for="esm_exp_data">СЭМ (параметры измерений)</label>
+            {{ form.esm_exp_data }}<br>
+            <label for="eds">ЭДС рисунок спектра</label>
+            {{ form.eds }}<br>
+            <label for="eds_spectrum_format">ЭДС спектр формата</label>
+            {{ form.eds_spectrum_format }}<br>
+            <label for="eds_composition">ЭДС количественые значения</label>
+            {{ form.eds_composition }}<br>
+            <label for="eds_exp_data">ЭДС (параметры измерений)</label>
+            {{ form.eds_exp_data }}<br>
+            <label for="Literature">Литература</label>
+            {{ form.Literature }}<br>
+            <label for="notes">Примечания</label>
+            {{ form.notes }}<br>
+            <label for="data">Дата заполнения</label>
+            {{ form.data }}<br>
+            <span>{{ error }}</span>
+            <input type="submit" value="Сохранить" >
+            <!-- <button class="btn btn-success" type="submit">Добавить объект</button> -->
+        </form>
+    </div>
+{% endblock %}

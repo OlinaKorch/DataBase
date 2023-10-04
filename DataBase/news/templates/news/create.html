@@ -1,0 +1,27 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Форма по добавлению объекта{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Форма по добавлению объекта</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form1.as_p}}
+            {{form2.as_p}}
+            {{form3.as_p}}
+            {{form4.as_p}}
+            {{form5.as_p}}
+            {{form6.as_p}}
+            {{form7.as_p}}
+            {{form8.as_p}}
+            {{form9.as_p}}
+            {{form10.as_p}}
+            {{form11.as_p}}
+            {{form12.as_p}}
+            {{form13.as_p}}
+            <span>{{ error }}</span>
+            <button class="btn btn-info" type="submit">Добавить объект</button>
+        </form>
+    </div>
+{% endblock %}

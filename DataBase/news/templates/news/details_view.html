@@ -1,0 +1,552 @@
+{% extends 'main/layout.html' %}ч
+{% load static %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+    <div class="features">
+            <label for="id">ID</label>
+            <h1>{{ object.id }}</h1>
+
+        {% if object.cipher_section %}
+        <div class="text">
+            <label for="cipher_section">Шифр секции:</label>
+            <p>{{ object.get_cipher_section_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.cipher_fond %}
+        <div class="text">
+            <label for="cipher_fond">Шифр коллекция/фонд</label>
+            <p>{{ object.get_cipher_fond_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.cipher_fond_number %}
+        <div class="text">
+            <label for="cipher_fond_number">Номер коллекции/фонда</label>
+            <p>{{ object.cipher_fond_number }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.cipher_case_number %}
+        <div class="text">
+            <label for="cipher_case_number">Номер дела</label>
+            <p>{{ object.cipher_case_number }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.cipher_list_number %}
+        <div class="text">
+            <label for="cipher_list_number">Номер листа</label>
+            <p>{{ object.cipher_list_number }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.sample_number %}
+        <div class="text">
+            <label for="sample_number">№ образца(для образцов без шифра)</label>
+            <p>{{ object.sample_number }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.year %}
+        <div class="text">
+            <label for="year">Год</label>
+            <p>{{ object.year }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.month %}
+        <div class="text">
+            <label for="month">Месяц</label>
+            <p>{{ object.get_month_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.day %}
+        <div class="text">
+            <label for="day">День</label>
+            <p>{{ object.get_day_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.author %}
+        <div class="text">
+            <label for="author">Автор</label>
+            <p>{{ object.author }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.short_description %}
+        <div class="text">
+            <label for="short_description">Краткое описание</label>
+            <p>{{ object.short_description }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.place %}
+        <div class="text">
+            <label for="place">Место создания</label>
+            <p>{{ object.get_place_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.detailed_description %}
+        <div class="text">
+            <label for="detailed_description">Подробное описание</label>
+            <p>{{ object.detailed_description }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.restoration %}
+        <div class="text">
+            <label for="restoration">Предыдущая реставрация</label>
+            <p>{{ object.get_restoration_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.shade %}
+        <div class="text">
+            <label for="shade">Оттенок</label>
+            <p>{{ object.get_shade_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.ebb %}
+        <div class="text">
+            <label for="ebb">Отлив</label>
+            <p>{{ object.get_ebb_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.text_orientation %}
+        <div class="text">
+            <label for="text_orientation">Ориентация текста относительно верже</label>
+            <p>{{ object.get_text_orientation_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.cutting %}
+        <div class="text">
+            <label for="cutting">Обрезка</label>
+            <p>{{ object.get_cutting_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.folding %}
+        <div class="text">
+            <label for="folding">Сложение</label>
+            <p>{{ object.get_folding_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.size_width %}
+        <div class="text">
+            <label for="size_width">Ширина (мм)</label>
+            <p>{{ object.size_width }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.size_height %}
+        <div class="text">
+            <label for="size_height">Высота (мм)</label>
+            <p>{{ object.size_height }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.square %}
+        <div class="text">
+            <label for="square">Площадь (м.кв.)</label>
+            <p>{{ object.square }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.avg_sheet_thickness %}
+        <div class="text">
+            <label for="avg_sheet_thickness">Средняя толщина листа (мм)</label>
+            <p>{{ object.avg_sheet_thickness }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.med_sheet_thickness %}
+        <div class="text">
+            <label for="med_sheet_thickness">Толщина листа медиана (мм)</label>
+            <p>{{ object.med_sheet_thickness }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.sheet_weight %}
+        <div class="text">
+            <label for="sheet_weight">Вес листа (гр)</label>
+            <p>{{ object.sheet_weight }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.mass %}
+        <div class="text">
+            <label for="mass">Масса (1м.кв., гр.)</label>
+            <p>{{ object.mass }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.density %}
+        <div class="text">
+            <label for="density">Плотность (гр/см куб.)</label>
+            <p>{{ object.density }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="filigree_pic">Филигрань рисунок</label>
+        {% if object.filigree_pic %}
+            <p><img src="{{ object.filigree_pic.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.filigree_height %}
+        <div class="text">
+            <label for="filigree_height">Высота филиграни (мм)</label>
+            <p>{{ object.filigree_height }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.filigree_description %}
+        <div class="text">
+            <label for="filigree_description">Описание филиграни</label>
+            <p>{{ object.filigree_description }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.filigree_conformity %}
+        <div class="text">
+            <label for="filigree_conformity">Филигрань соответствие</label>
+            <p>{{ object.filigree_conformity }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.filigree_bernstein %}
+        <div class="text">
+            <label for="filigree_bernstein">Филигрань Бернштейн</label>
+            <p>{{ object.filigree_bernstein }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.filigree_safety %}
+        <div class="text">
+            <label for="filigree_safety">Сохранность филиграни</label>
+            <p>{{ object.get_filigree_safety_display }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="countermark_pic">Контрмарка рисунок</label>
+        {% if object.countermark_pic %}
+            <p><img src="{{ object.countermark_pic.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.countermark_height %}
+        <div class="text">
+            <label for="countermark_height">Высота контрмарки (мм)</label>
+            <p>{{ object.countermark_height }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.countermark_description %}
+        <div class="text">
+            <label for="countermark_description">Описание контрмарки</label>
+            <p>{{ object.countermark_description }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.countermark_conformity %}
+        <div class="text">
+            <label for="countermark_conformity">Контрмарка соответствие</label>
+            <p>{{ object.countermark_conformity }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.countermark_bernstein %}
+        <div class="text">
+            <label for="countermark_bernstein">Контрмарка Бернштейн</label>
+            <p>{{ object.countermark_bernstein }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.countermark_safety %}
+        <div class="text">
+            <label for="countermark_safety">Сохранность филиграни</label>
+            <p>{{ object.get_countermark_safety_display }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.verge_distance %}
+        <div class="text">
+            <label for="verge_distance">Расстояние между верже (мм)</label>
+            <p>{{ object.verge_distance }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.pontuso_distance %}
+        <div class="text">
+            <label for="pontuso_distance">Расстояние между понтюзо (мм)</label>
+            <p>{{ object.pontuso_distance }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.verge_thickness %}
+        <div class="text">
+            <label for="verge_thickness">Толщина верже (мм)</label>
+            <p>{{ object.verge_thickness }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.pontuso_thickness %}
+        <div class="text">
+            <label for="pontuso_thickness">Толщина понтюзо (мм)</label>
+            <p>{{ object.pontuso_thickness }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.date_of_forms %}
+        <div class="text">
+            <label for="date_of_forms">Дата отливочной формы</label>
+            <p>{{ object.date_of_forms }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.whiteness_avg %}
+        <div class="text">
+            <label for="whiteness_avg">Средняя белизна (cie)</label>
+            <p>{{ object.whiteness_avg }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.brightness_avg %}
+        <div class="text">
+            <label for="brightness_avg">Средняя яркость (%)</label>
+            <p>{{ object.brightness_avg }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.fluorescence %}
+        <div class="text">
+            <label for="fluorescence">Флуоресценция (%)</label>
+            <p>{{ object.fluorescence }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.whiteness_exp %}
+        <div class="text">
+            <label for="whiteness_exp">Белизна (параметры измерений)</label>
+            <p>{{ object.whiteness_exp }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.pH_avg %}
+        <div class="text">
+            <label for="pH_avg">pH-среднее</label>
+            <p>{{ object.pH_avg }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.pH_exp %}
+        <div class="text">
+            <label for="pH_exp">pH (параметры измерений)</label>
+            <p>{{ object.pH_exp }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="fiber_composition_herc">Состав по волокну (Херцберг)</label>
+        {% if object.fiber_composition_herc %}
+            <p><img src="{{ object.fiber_composition_herc.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        <div class="text">
+            <label for="fiber_composition_graff">Состав по волокну (Графф)</label>
+        {% if object.fiber_composition_graff %}
+            <p><img src="{{ object.fiber_composition_graff.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.fiber_composition_description2 %}
+        <div class="text">
+            <label for="fiber_composition_description2">Состав по волокну</label>
+            <p>{{ object.fiber_composition_description2 }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="polmic_pol">Поляризационная микроскопия в поляризованном свете</label>
+        {% if object.polmic_pol %}
+            <p><img src="{{ object.polmic_pol.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        <div class="text">
+            <label for="polmic_cross">Поляризационная микроскопия в скрещенных николях</label>
+        {% if object.polmic_cross %}
+            <p><img src="{{ object.polmic_cross.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.polmic_param %}
+        <div class="text">
+            <label for="polmic_param">Поляризационная микроскопия, параметры измерений</label>
+            <p>{{ object.polmic_param }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="rfa_spectrum">Рисунок спектра РФА</label>
+        {% if object.rfa_spectrum %}
+            <p><img src="{{ object.rfa_spectrum.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.rfa_composition %}
+        <div class="text">
+            <label for="rfa_composition">РФА количественые значения</label>
+            <p>{{ object.rfa_composition }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.rfa_spectrum_format %}
+        <div class="text">
+            <label for="rfa_spectrum_format">РФА спектр формата</label>
+            <p>{{ object.rfa_spectrum_format }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.rfa_exp_data %}
+        <div class="text">
+            <label for="rfa_exp_data">РФА (параметры измерений)</label>
+            <p>{{ object.rfa_exp_data }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="IRFourier_pic">ИК-Фурье рисунок</label>
+        {% if object.IRFourier_pic %}
+            <p><img src="{{ object.IRFourier_pic.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.IRFourier_spectrum_format %}
+        <div class="text">
+            <label for="IRFourier_spectrum_format">ИК-Фурье спектр формата</label>
+            <p>{{ object.IRFourier_spectrum_format }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.IRFourier_description %}
+        <div class="text">
+            <label for="IRFourier_description">ИК-Фурье описание</label>
+            <p>{{ object.IRFourier_description }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.IRFourier_exp_data %}
+        <div class="text">
+            <label for="IRFourier_exp_data">ИК-Фурье (параметры измерений)</label>
+            <p>{{ object.IRFourier_exp_data }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="esm_second_pic">СЭМ вторичные электроны</label>
+        {% if object.esm_second_pic %}
+            <p><img src="{{ object.esm_second_pic.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        <div class="text">
+            <label for="esm_reverse_pic">СЭМ обратно рассеянные</label>
+        {% if object.esm_reverse_pic %}
+            <p><img src="{{ object.esm_reverse_pic.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.esm_exp_data %}
+        <div class="text">
+            <label for="esm_exp_data">СЭМ (параметры измерений)</label>
+            <p>{{ object.esm_exp_data }}</p>
+        </div>
+        {% endif %}
+
+        <div class="text">
+            <label for="eds">ЭДС рисунок спектра</label>
+        {% if object.eds %}
+            <p><img src="{{ object.eds.url }}" width="200" height="100"></p>
+        {% else %}
+            <div>Рисунок не прикреплен</div>
+        {% endif %}
+        </div>
+
+        {% if object.eds_spectrum_format %}
+        <div class="text">
+            <label for="eds_spectrum_format">ЭДС спектр формата</label>
+            <p>{{ object.eds_spectrum_format }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.eds_composition %}
+        <div class="text">
+            <label for="eds_composition">ЭДС количественые значения</label>
+            <p>{{ object.eds_composition }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.eds_exp_data %}
+        <div class="text">
+            <label for="eds_exp_data">ЭДС (параметры измерений)</label>
+            <p>{{ object.eds_exp_data }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.Literature %}
+        <div class="text">
+            <label for="Literature">Литература</label>
+            <p>{{ object.Literature }}</p>
+        </div>
+        {% endif %}
+
+        {% if object.notes %}
+        <div class="text">
+            <label for="notes">Примечания</label>
+            <p>{{ object.notes }}
+        </div>
+        {% endif %}
+
+        {% if object.data %}
+        <div class="text">
+            <label for="data">Дата заполнения</label>
+            <p>{{ object.data }}</p>
+        </div>
+        {% endif %}
+        <p><img src="{{ filpic.image.url }}"></p>
+    </div>
+{% endblock %}

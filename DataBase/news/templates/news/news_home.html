@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Новости на сайте{% endblock %}
+
+{% block content %}
+    <div id="map"></div>
+    <div class="features">
+        <h1>Объекты</h1>
+        {% if news %}
+            {% for el in news %}
+                <div class="alert alert-primary">
+                    <h3>№{{ el.id }}</h3>
+                    <p>{{ el.intro }}</p>
+                    <a href="{% url 'object-detail' el.id %}" class="btn btn-secondary">Смотреть детали</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Нет доступа к объектам</p>
+        {% endif %}
+    </div>
+
+{% endblock %}
